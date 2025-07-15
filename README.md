@@ -1,6 +1,6 @@
 ## Getting Started
 
-Find the live version here : (Live)[go-daddy-assignment-seven.vercel.app]
+Find the live version here : [Live](go-daddy-assignment-seven.vercel.app)
 
 ### Installation
 
