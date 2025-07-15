@@ -1,4 +1,4 @@
-import { getData } from "~/utils/helperFunctions";
+import { getData, getLanguages } from "~/utils/helperFunctions";
 import type { Route } from "./+types/repo";
 import { Repodetails } from "~/repo-details/repodetails";
 
@@ -11,11 +11,12 @@ export function meta({}: Route.MetaArgs) {
 
 export async function loader({ params }: Route.LoaderArgs) {
   const repoDetails = await getData(params.name);
-  return repoDetails;
+  const languageList = await getLanguages(params.name);
+  return { repoDetails, languageList };
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
-  const repoData = loaderData;
+  const { repoDetails, languageList } = loaderData;
 
-  return <Repodetails repoData={repoData} />;
+  return <Repodetails repoData={repoDetails} languageList={languageList} />;
 }

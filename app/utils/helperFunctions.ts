@@ -1,22 +1,21 @@
-export async function getData(repoName: string) {
-  const res = await fetch(`https://api.github.com/repos/godaddy/${repoName}`);
+export async function githubAPI(endpoint: string) {
+  const res = await fetch(`https://api.github.com${endpoint}`);
 
   if (!res.ok) {
-    throw new Error("failed to fetch");
+    throw new Error(
+      `Failed to fetch ${endpoint}: ${res.status} ${res.statusText}`
+    );
   }
 
   return res.json();
 }
 
-export async function getRepos() {
-  const res = await fetch(`https://api.github.com/orgs/godaddy/repos`);
-
-  if (!res.ok) {
-    throw new Error("failed to fetch");
-  }
-
-  return res.json();
-}
+// Usage examples:
+export const getData = (repoName: string) =>
+  githubAPI(`/repos/godaddy/${repoName}`);
+export const getLanguages = (repoName: string) =>
+  githubAPI(`/repos/godaddy/${repoName}/languages`);
+export const getRepos = () => githubAPI(`/orgs/godaddy/repos`);
 
 export const getLanguageColor = (language: string) => {
   const colors: any = {
