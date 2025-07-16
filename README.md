@@ -2,6 +2,12 @@
 
 Find the live version here : [Live](https://go-daddy-assignment-seven.vercel.app)
 
+### Packages and tools used
+
+- React Router 7 - I find easy and flexible to use
+- Tailwind CSS - Writing CSS made fun for me with tailwind
+- Jest for testing - Easy for use
+
 ### Installation
 
 Clone the Repo and move to the folder for continue
