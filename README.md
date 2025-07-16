@@ -35,6 +35,12 @@ Create a production build:
 npm run build
 ```
 
+## Test
+
+```bash
+npm run test
+```
+
 ## Deployment
 
 ### Docker Deployment

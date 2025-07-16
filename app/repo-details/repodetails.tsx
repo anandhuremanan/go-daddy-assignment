@@ -1,30 +1,7 @@
 import { Link } from "react-router";
 import Icon from "~/icon/icon";
 import { eye, fork, info, linkTo } from "~/icon/paths";
-
-interface RepoData {
-  name: string;
-  description: string;
-  forks_count: number;
-  open_issues: number;
-  watchers: number;
-}
-
-interface LanguageList {
-  [key: string]: number;
-}
-
-interface RepoDetailsProps {
-  repoData: RepoData;
-  languageList: LanguageList;
-}
-
-interface StatItem {
-  elements: any;
-  count: number;
-  title: string;
-  color: string;
-}
+import type { RepoDetailsProps, StatItem } from "./types";
 
 const iconProps = {
   svgClass: "fill-none stroke-zinc-500",
@@ -54,7 +31,7 @@ export function Repodetails({ repoData, languageList }: RepoDetailsProps) {
       color: "text-green-500",
     },
     {
-      elements: eye, // You may need to import or create this icon
+      elements: eye,
       count: languageCount,
       title: "Languages",
       color: "text-purple-500",
